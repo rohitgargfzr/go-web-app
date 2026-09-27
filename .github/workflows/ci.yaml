@@ -7,7 +7,7 @@ on:
       - 'helm/**'
 
 jobs:
-  build and test:
+  build-and-test:
     runs-on: ubuntu-latest
     steps:
       - name: checkout git repo
@@ -28,7 +28,7 @@ jobs:
       - name: run tests
         run: go test
   
-  static analysis:
+  static-analysis:
     runs-on: ubuntu-latest
     steps:
       - name: checkout git repo
@@ -71,7 +71,7 @@ jobs:
           # Enables GitHub Actions cache for much faster subsequent builds
           cache-from: type=gha
           cache-to: type=gha,mode=max
-  Update helm chart:
+  Update-helm-chart:
     runs-on: ubuntu-latest
     needs: push
     steps:
