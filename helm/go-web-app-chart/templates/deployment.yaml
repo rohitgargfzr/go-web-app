@@ -1,0 +1,22 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: go-web-app-deployment
+  labels:
+    app: go-web-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: go-web-app
+  template:
+    metadata:
+      name: go-web-app
+      labels:
+        app: go-web-app
+    spec:
+      containers:
+        - name: go-web-app
+          image: rockygarg11/go-web-app:{{ .Values.image.tag }}
+          ports:
+            - containerPort: 8080
