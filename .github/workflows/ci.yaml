@@ -79,6 +79,7 @@ jobs:
 
       - name: Update Image Tag in Helm values.yaml
         run: |
+          ls
           # Uses sed to find "tag: <anything>" under the image section and swap it out
           # Alternatively, use yq: yq -i '.image.tag = "${{ github.run_id }}"' charts/my-go-app/values.yaml
           sed -i 's/tag: .*/tag: "${{ github.run_id }}"/' ./go-web-app/helm/my-go-app-chart/values.yaml
