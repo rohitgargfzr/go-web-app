@@ -62,13 +62,12 @@ jobs:
 
       # 4. Build and push Docker image
       - name: Build and push Docker image
-        uses: docker/build-and-push-action@v6
+        uses: docker/build-and-push-action@v3
         with:
           context: .
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/go-web-app:${{github.run_id}}
-          # Enables GitHub Actions cache for much faster subsequent builds
           cache-from: type=gha
           cache-to: type=gha,mode=max
   Update-helm-chart:
