@@ -81,13 +81,13 @@ jobs:
           ls
           # Uses sed to find "tag: <anything>" under the image section and swap it out
           # Alternatively, use yq: yq -i '.image.tag = "${{ github.run_id }}"' charts/my-go-app/values.yaml
-          sed -i 's/tag: .*/tag: "${{ github.run_id }}"/' ./helm/my-go-app-chart/values.yaml
+          sed -i 's/tag: .*/tag: "${{ github.run_id }}"/' ./helm/go-web-app-chart/values.yaml
 
       - name: Commit and Push Updated Helm Chart
         run: |
           git config --global user.name "rohitgargfzr"
           git config --global user.email "rohit.gargfzr@gmail.com"
-          git add ./helm/my-go-app-chart/values.yaml
+          git add ./helm/go-web-app-chart/values.yaml
           git commit -m "chore: update container image tag to ${{ github.run_id }} [skip ci]"
           git push
 
