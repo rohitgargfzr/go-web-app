@@ -38,7 +38,7 @@ jobs:
         uses: golangci/golangci-lint-action@v6
         with:
             # Optional: Specify the exact version of the linter tool
-            version: v1.28.3
+            version: latest
   
   build-and-push:
     runs-on: ubuntu-latest
