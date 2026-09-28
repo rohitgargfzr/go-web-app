@@ -62,7 +62,7 @@ jobs:
 
       # 4. Build and push Docker image
       - name: Build and push Docker image
-        uses: docker/build-and-push-action@v3
+        uses: docker/build-push-action@v3
         with:
           context: .
           file: ./Dockerfile
